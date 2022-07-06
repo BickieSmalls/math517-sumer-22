@@ -19,10 +19,11 @@ import networkx as nx
 # Create data directory path
 from pathlib import Path
 #data_dir = Path('.') / 'data'
-data_dir=Path(r"E:\\Chapter03")
+data_dir=Path("/Users/NathanBick/Documents/Graduate School/MATH517 - Social Network Analysis/example")
 # Read edge list
 G = nx.read_edgelist(str(data_dir / 'example.edgelist'))
 # Draw network
 pos = nx.spring_layout(G)
 nx.draw_networkx(G, pos)
-plt.gca().margins(0.15, 0.15)	
+plt.gca().margins(0.15, 0.15)
+plt.show()
