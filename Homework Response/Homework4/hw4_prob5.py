@@ -1,5 +1,7 @@
 import networkx as nx
 from matplotlib import pyplot as plt
+import math
+import numpy as np
 
 # create the depicted graph manually
 G = nx.Graph()
@@ -37,4 +39,19 @@ plt.show()
 # m is the total number of edges in the graph
 
 A = nx.adjacency_matrix(G)
-   
+B = nx.modularity_matrix(G)
+
+print(A)
+print(B)
+
+# now that we have the modularity matrix, we can get the eigenvalues and eigenvectors
+eigenvalues = np.linalg.eigvals(B)
+np.amax(eigenvalues)
+
+eigenpairs = np.linalg.eig(B)
+
+largest_eigenvalue = eigenpairs[0][0]
+largest_eigenvalue_vec = eigenpairs[1][0]
+
+print(largest_eigenvalue)
+print(largest_eigenvalue_vec)
